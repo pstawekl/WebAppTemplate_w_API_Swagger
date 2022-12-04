@@ -1,0 +1,7 @@
+# API
+Error:
+  $ref: "./Error.yaml"
+Information:
+  $ref: "./Information.yaml"
+Object:
+  $ref: "./Object.yaml"

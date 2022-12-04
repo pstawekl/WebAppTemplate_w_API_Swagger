@@ -1,0 +1,165 @@
+.body {
+    padding-left: 20%;
+    width: 80%;
+    font-family: "Roboto", "Sans-serif";
+    font-size: 1.4rem;
+    margin-top: 10px;
+}
+
+.bodyText {
+    font-size: 1.5vh;
+}
+
+.body span {
+    text-align: justify;
+    justify-content: center;
+}
+
+.alert {
+    text-align: center;
+}
+
+.btn-secondary {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.object {
+    text-align: center;
+}
+
+.listButton {
+    color: black;
+    border: none;
+    background-color: transparent;
+    font-size: 1.6rem;
+    width: 10%;
+}
+
+.listButton:hover {
+    background-color: transparent;
+    transition: 0.5s;
+    color: red;
+}
+
+.fontAwesomeButton {
+    margin-right: 10px;
+    font-size: 1.4rem;
+}
+
+.fontAwesomeButton:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.objectsRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid silver;
+}
+
+.tabRow {
+    border: 1px solid silver;
+}
+
+.body {
+    padding-left: 20%;
+    width: 80%;
+    font-family: "Roboto", "Sans-serif";
+    font-size: 1.4rem;
+    margin-top: 10px;
+}
+
+.body span {
+    text-align: justify;
+    justify-content: center;
+}
+
+.alert {
+    text-align: center;
+}
+
+.requestForm {
+    padding-bottom: 30px;
+}
+
+.btn-dark {
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+.bottom-text {
+    font-size: 1rem;
+}
+
+.listButton {
+    color: black;
+    border: none;
+    background-color: transparent;
+    font-size: 1.6rem;
+    width: 10%;
+}
+
+.listButton:hover {
+    background-color: transparent;
+    transition: 0.5s;
+    color: red;
+}
+
+.fontAwesomeButton {
+    margin-right: 10px;
+    font-size: 1.4rem;
+}
+
+.fontAwesomeButton:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.objectsRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid silver;
+}
+
+.tabRow {
+    border: 1px solid silver;
+}
+
+.list-title-bar {
+    font-size: 2rem;
+    margin-right: 73%;
+}
+
+.capacity-table {
+    width: 100%;
+}
+
+.table-title-row {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.table-title-text {
+    width: 45%;
+    margin-right: 5px;
+}
+
+.table-add-button {
+    width: 10%;
+}
+
+.table-submit-button {
+    width: 100%;
+}
+
+.listButton {
+    margin: 0;
+    padding-left: 90%;
+}

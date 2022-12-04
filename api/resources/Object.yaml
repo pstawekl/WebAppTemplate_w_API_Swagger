@@ -1,0 +1,63 @@
+get:
+  summary: Get Object
+  operationId: getObject
+  description: Get the Object
+  tags:
+    - Object
+  parameters:
+    - name: object_id
+      in: path
+      required: true
+      description: The id of the object to retrieve
+      schema:
+        type: string
+  responses:
+    "200":
+      description: The Object
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/Object.yaml"
+    default:
+      $ref: "../responses/UnexpectedError.yaml"
+put:
+  summary: Edit object
+  operationId: editObject
+  description: Edit object
+  tags:
+    - Object
+  parameters:
+    - name: object_id
+      in: path
+      required: true
+      description: The id of the object to retrieve
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/Object.yaml"
+  responses:
+    "201":
+      $ref: "../responses/Created.yaml"
+    default:
+      $ref: "../responses/UnexpectedError.yaml"
+delete:
+  summary: Delete Object
+  operationId: deleteObject
+  description: Delete Object object
+  tags:
+    - Object
+  parameters:
+    - name: object_id
+      in: path
+      required: true
+      description: The id of the object to retrieve
+      schema:
+        type: string
+  responses:
+    "204":
+      $ref: "../responses/Deleted.yaml"
+    default:
+      $ref: "../responses/UnexpectedError.yaml"

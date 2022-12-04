@@ -1,0 +1,45 @@
+@media (max-width: 1000px){
+    #nav-item{
+        text-decoration: none;
+        padding-left: 20px;
+        width: 100%;
+    }
+    #nav-item:hover{
+        color: white;
+        background-color: red;
+        cursor: pointer;
+    }
+    #nav-item a{
+        font-size: 1.6rem;
+    }
+}
+
+.dropdown-toggle{
+    font-size: 1.6rem;
+}
+
+#nav-item{
+    margin-right: 10px;
+}
+
+#nav-item a{
+    color: black;
+    text-decoration: none;
+}
+
+#nav-item a:hover{
+    text-decoration: none;
+    color: rgb(255, 0, 0)
+}
+
+
+#nav-brand a{
+    text-decoration: none;
+    color: black
+}
+
+.logo:hover{
+    transition: 1.5s;
+    filter: contrast(200%);
+    cursor: pointer;
+}

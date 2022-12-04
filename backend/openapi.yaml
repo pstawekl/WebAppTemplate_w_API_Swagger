@@ -1,0 +1,247 @@
+openapi: 3.0.0
+info:
+  description: API for config.json in tank_measurement
+  title: Tank Measurement API
+  version: 0.1.9
+servers:
+- description: "Optional server description, e.g. Main (production) server"
+  url: http://localhost:8080/
+- description: "Optional server description, e.g. Internal staging server for testing"
+  url: http://localhost:8080/test
+paths:
+  /object:
+    get:
+      description: Get list of objects
+      operationId: getObjects
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Object'
+                type: array
+          description: Expected response to a valid request
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: unexpected error
+      summary: Get objects
+      tags:
+      - Object
+    post:
+      description: Create a object
+      operationId: createObject
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Object'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Information'
+          description: Created
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: unexpected error
+      summary: Create a object
+      tags:
+      - Object
+  /object/{object_id}:
+    delete:
+      description: Delete Object object
+      operationId: deleteObject
+      parameters:
+      - description: The id of the object to retrieve
+        explode: false
+        in: path
+        name: object_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Information'
+          description: Deleted
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: unexpected error
+      summary: Delete Object
+      tags:
+      - Object
+    get:
+      description: Get the Object
+      operationId: getObject
+      parameters:
+      - description: The id of the object to retrieve
+        explode: false
+        in: path
+        name: object_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+          description: The Object
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: unexpected error
+      summary: Get Object
+      tags:
+      - Object
+    put:
+      description: Edit object
+      operationId: editObject
+      parameters:
+      - description: The id of the object to retrieve
+        explode: false
+        in: path
+        name: object_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Object'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Information'
+          description: Created
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: unexpected error
+      summary: Edit object
+      tags:
+      - Object
+components:
+  responses:
+    UnexpectedError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+      description: unexpected error
+    NullResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Information'
+      description: Null response
+    Created:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Information'
+      description: Created
+    Updated:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Information'
+      description: Updated
+    Deleted:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Information'
+      description: Deleted
+  schemas:
+    Error:
+      properties:
+        code:
+          format: int32
+          title: code
+          type: integer
+        message:
+          title: message
+          type: string
+      required:
+      - code
+      - message
+      title: Error
+      type: object
+    Information:
+      example:
+        message: message
+        affected: 6
+        status: 0
+      properties:
+        status:
+          format: int32
+          nullable: false
+          title: status
+          type: integer
+        affected:
+          format: int32
+          nullable: false
+          title: affected
+          type: integer
+        message:
+          nullable: true
+          title: message
+          type: string
+      required:
+      - affected
+      - message
+      - status
+      title: Information
+      type: object
+    Object:
+      example:
+        description: description
+        id: id
+        value: value
+      properties:
+        id:
+          description: none
+          pattern: "^.{0,20}"
+          title: id
+          type: string
+        description:
+          description: none
+          pattern: "^.{0,40}"
+          title: description
+          type: string
+        value:
+          description: none
+          pattern: "^.{0,20}"
+          title: value
+          type: string
+      required:
+      - description
+      - id
+      - value
+      title: Object
+      type: object
