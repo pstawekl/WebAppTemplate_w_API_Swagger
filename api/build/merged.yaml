@@ -1,0 +1,190 @@
+openapi: 3.0.0
+info:
+  title: Project API
+  description: API for config.json in project
+  version: 0.1.9
+servers:
+  - url: 'http://localhost:8080/'
+    description: 'Optional server description, e.g. Main (production) server'
+  - url: 'http://localhost:8080/test'
+    description: 'Optional server description, e.g. Internal staging server for testing'
+paths:
+  /object:
+    get:
+      summary: Get objects
+      operationId: getObjects
+      description: Get list of objects
+      tags:
+        - Object
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Object'
+        default:
+          $ref: '#/components/responses/UnexpectedError'
+    post:
+      summary: Create a object
+      operationId: createObject
+      description: Create a object
+      tags:
+        - Object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Object'
+      responses:
+        '201':
+          $ref: '#/components/responses/Created'
+        default:
+          $ref: '#/components/responses/UnexpectedError'
+  '/object/{object_id}':
+    get:
+      summary: Get Object
+      operationId: getObject
+      description: Get the Object
+      tags:
+        - Object
+      parameters:
+        - name: object_id
+          in: path
+          required: true
+          description: The id of the object to retrieve
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The Object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+        default:
+          $ref: '#/components/responses/UnexpectedError'
+    put:
+      summary: Edit object
+      operationId: editObject
+      description: Edit object
+      tags:
+        - Object
+      parameters:
+        - name: object_id
+          in: path
+          required: true
+          description: The id of the object to retrieve
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Object'
+      responses:
+        '201':
+          $ref: '#/components/responses/Created'
+        default:
+          $ref: '#/components/responses/UnexpectedError'
+    delete:
+      summary: Delete Object
+      operationId: deleteObject
+      description: Delete Object object
+      tags:
+        - Object
+      parameters:
+        - name: object_id
+          in: path
+          required: true
+          description: The id of the object to retrieve
+          schema:
+            type: string
+      responses:
+        '204':
+          $ref: '#/components/responses/Deleted'
+        default:
+          $ref: '#/components/responses/UnexpectedError'
+components:
+  schemas:
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+    Information:
+      type: object
+      required:
+        - status
+        - affected
+        - message
+      properties:
+        status:
+          type: integer
+          format: int32
+          nullable: false
+        affected:
+          type: integer
+          format: int32
+          nullable: false
+        message:
+          type: string
+          nullable: true
+    Object:
+      type: object
+      required:
+        - id
+        - description
+        - value
+      properties:
+        id:
+          type: string
+          pattern: '^.{0,20}'
+          description: none
+        description:
+          type: string
+          pattern: '^.{0,40}'
+          description: none
+        value:
+          type: string
+          pattern: '^.{0,20}'
+          description: none
+  responses:
+    UnexpectedError:
+      description: unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NullResponse:
+      description: Null response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Information'
+    Created:
+      description: Created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Information'
+    Updated:
+      description: Updated
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Information'
+    Deleted:
+      description: Deleted
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Information'

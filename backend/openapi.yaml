@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
-  description: API for config.json in tank_measurement
-  title: Tank Measurement API
+  description: API for config.json in project
+  title: Project API
   version: 0.1.9
 servers:
 - description: "Optional server description, e.g. Main (production) server"

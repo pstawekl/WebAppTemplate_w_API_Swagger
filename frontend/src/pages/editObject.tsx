@@ -39,7 +39,7 @@ export default function EditObjectByApi(): JSX.Element {
             console.log("object przed fetchem", object)
             if (object.id != "" && descritpion != "" && objectValue != "") {
                 const editTankReq: EditObjectRequest = { objectId: object.id, modelObject: object };
-                objectApi.editObject(editTankReq).then(response => setResStatus(200));
+                objectApi.editObject(editTankReq);
             }
             setTimeout(() => navigate('/object'), 1500);
         } catch (err) {

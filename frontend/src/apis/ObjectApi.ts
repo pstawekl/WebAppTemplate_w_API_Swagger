@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Tank Measurement API
- * API for config.json in tank_measurement
+ * Project API
+ * API for config.json in project
  *
  * The version of the OpenAPI document: 0.1.9
  * 

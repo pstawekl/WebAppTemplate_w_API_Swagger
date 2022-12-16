@@ -3,9 +3,9 @@
 from fastapi.testclient import TestClient
 
 
-from openapi_server.models.error import Error  # noqa: F401
-from openapi_server.models.information import Information  # noqa: F401
-from openapi_server.models.object import Object  # noqa: F401
+from project_api.models.error import Error  # noqa: F401
+from project_api.models.information import Information  # noqa: F401
+from project_api.models.object import Object  # noqa: F401
 
 
 def test_create_object(client: TestClient):

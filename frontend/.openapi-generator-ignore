@@ -21,3 +21,18 @@
 #docs/*.md
 # Then explicitly reverse the ignore rule for a single file:
 #!docs/README.md
+
+src/pages/createObject.tsx
+src/pages/editObject.tsx
+src/pages/error.tsx
+src/pages/home.tsx
+src/pages/objectInfo.tsx
+src/pages/objects.tsx
+src/pages/serviceError.tsx
+src/index.tsx
+src/App.tsx
+src/global.d.ts
+tsconfig.json
+package.json
+package-lock.json
+.gitignore

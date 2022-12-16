@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
-  title: Tank Measurement API
-  description: API for config.json in tank_measurement
+  title: Project API
+  description: API for config.json in project
   version: 0.1.9
 servers:
   - url: http://localhost:8080/

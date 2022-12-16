@@ -13,7 +13,7 @@ import CreatePortByApi from './pages/createObject';
 import EditObjectByApi from './pages/editObject';
 import GetObjectInfoFromApi from './pages/objectInfo';
 
-// DefaultConfig.config = new Configuration( { basePath: 'http://0.0.0.0:8000' } );
+DefaultConfig.config = new Configuration( { basePath: 'http://127.0.0.1:8000' } );
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(
